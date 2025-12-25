@@ -39,8 +39,6 @@ services:
     env_file:
       - .env
     environment:
-      - DEBUG=True
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/survey_platform
       - REDIS_URL=redis://redis:6379/0
     depends_on:
       db:
