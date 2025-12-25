@@ -105,12 +105,26 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    # Development - SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    # Production - PostgreSQL
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env('DATABASE_NAME', default='survey_platform'),
+            'USER': env('DATABASE_USER', default='postgres'),
+            'PASSWORD': env('DATABASE_PASSWORD', default='postgres'),
+            'HOST': env('DATABASE_HOST', default='localhost'),
+            'PORT': env('DATABASE_PORT', default='5432'),
+        }
+    }
 
 # Redis Configuration
 REDIS_URL = env('REDIS_URL', default='redis://localhost:6379/0')
