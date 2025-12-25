@@ -36,6 +36,10 @@ SECRET_KEY = env('SECRET_KEY', default='django-insecure-+j@mja%pj&qlry6lzjrxv5hp
 DEBUG = env.bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
+CSRF_TRUSTED_ORIGINS = [f"http://{host}" for host in ALLOWED_HOSTS] + [f"https://{host}" for host in ALLOWED_HOSTS]
+
+CORS_ALLOWED_ORIGINS = env.list("CORS_ALLOWED_ORIGINS",default=["http://localhost:3000"])
+
 
 # Encryption key for sensitive fields
 FIELD_ENCRYPTION_KEY = env('FIELD_ENCRYPTION_KEY', default=None)
