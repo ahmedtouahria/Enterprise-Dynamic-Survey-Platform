@@ -44,6 +44,10 @@ FIELD_ENCRYPTION_KEY = env('FIELD_ENCRYPTION_KEY', default=None)
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',  # Must be before django.contrib.admin
+    'unfold.contrib.filters',  # Optional, advanced filters
+    'unfold.contrib.forms',  # Optional, advanced form fields
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -250,4 +254,121 @@ SIMPLE_JWT = {
     'USER_ID_CLAIM': 'user_id',
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
+}
+
+# Unfold Admin Configuration
+UNFOLD = {
+    "SITE_TITLE": "Survey Platform Admin",
+    "SITE_HEADER": "Enterprise Dynamic Survey Platform",
+    "SITE_URL": "/",
+    "SITE_ICON": {
+        "light": lambda request: "📊",
+        "dark": lambda request: "📊",
+    },
+    "DASHBOARD_CALLBACK": "config.dashboard.dashboard_callback",
+    "COLORS": {
+        "primary": {
+            "50": "59 130 246",
+            "100": "37 99 235",
+            "200": "29 78 216",
+            "300": "30 64 175",
+            "400": "30 58 138",
+            "500": "23 37 84",
+            "600": "23 37 84",
+            "700": "23 37 84",
+            "800": "23 37 84",
+            "900": "23 37 84",
+            "950": "23 37 84",
+        },
+    },
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": True,
+        "navigation": [
+            {
+                "title": "Surveys",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Surveys",
+                        "icon": "description",
+                        "link": lambda request: "/admin/surveys/survey/",
+                    },
+                    {
+                        "title": "Sections",
+                        "icon": "segment",
+                        "link": lambda request: "/admin/surveys/section/",
+                    },
+                    {
+                        "title": "Fields",
+                        "icon": "input",
+                        "link": lambda request: "/admin/surveys/field/",
+                    },
+                    {
+                        "title": "Field Options",
+                        "icon": "check_box",
+                        "link": lambda request: "/admin/surveys/fieldoption/",
+                    },
+                    {
+                        "title": "Conditional Logic",
+                        "icon": "rule",
+                        "link": lambda request: "/admin/surveys/conditionallogic/",
+                    },
+                ],
+            },
+            {
+                "title": "Responses",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Survey Responses",
+                        "icon": "how_to_reg",
+                        "link": lambda request: "/admin/responses/surveyresponse/",
+                    },
+                    {
+                        "title": "Response Items",
+                        "icon": "list",
+                        "link": lambda request: "/admin/responses/surveyresponseitem/",
+                    },
+                ],
+            },
+            {
+                "title": "Access Control",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Users",
+                        "icon": "people",
+                        "link": lambda request: "/admin/auth/user/",
+                    },
+                    {
+                        "title": "Roles",
+                        "icon": "badge",
+                        "link": lambda request: "/admin/rbac/role/",
+                    },
+                    {
+                        "title": "Permissions",
+                        "icon": "lock",
+                        "link": lambda request: "/admin/rbac/permission/",
+                    },
+                    {
+                        "title": "User Roles",
+                        "icon": "assignment_ind",
+                        "link": lambda request: "/admin/rbac/userrole/",
+                    },
+                ],
+            },
+            {
+                "title": "Auditing",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Audit Logs",
+                        "icon": "history",
+                        "link": lambda request: "/admin/audits/auditlog/",
+                    },
+                ],
+            },
+        ],
+    },
 }
