@@ -37,6 +37,7 @@ urlpatterns = [
     
     # API endpoints
     path('api/v1/', include('surveys.urls')),
+    path('api/v1/responses/', include('responses.urls')),
     
     # API Documentation
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),

@@ -6,6 +6,29 @@ Enterprise-grade dynamic survey platform built with Django REST Framework, desig
 
 ---
 
+## 📚 Documentation
+
+### Getting Started
+- **[🚀 Quick Start Guide](QUICKSTART.md)** - Installation and setup instructions
+- **[🔐 JWT Authentication Guide](JWT_AUTHENTICATION_GUIDE.md)** - Complete JWT authentication reference
+
+### API Documentation (Survey Builder)
+- **[🎉 Delivery Summary](DELIVERY_SUMMARY.md)** - Quick overview of what was delivered
+- **[📋 API Implementation Summary](API_IMPLEMENTATION_SUMMARY.md)** - Complete implementation details
+- **[📖 API Documentation](API_DOCUMENTATION.md)** - Full REST API reference (1000+ lines)
+- **[⚡ API Quick Reference](API_QUICK_REFERENCE.md)** - Quick lookup guide for endpoints
+- **[🔄 Complete Workflow Example](COMPLETE_WORKFLOW_EXAMPLE.md)** - Step-by-step survey creation
+- **[🧪 API Testing Guide](API_TESTING_GUIDE.md)** - Testing tools and examples
+- **[🎨 API Visual Overview](API_VISUAL_OVERVIEW.md)** - Visual diagrams and architecture
+
+### Model Documentation
+- **[Models Documentation](MODELS_DOCUMENTATION.md)** - Database models, relationships, and patterns
+- **[Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Project setup and structure
+- **[Entity Relationship Diagram](ENTITY_RELATIONSHIP_DIAGRAM.md)** - ASCII ER diagrams
+- **[Database Schema Diagram](DB_SCHEMA_DIAGRAM.md)** - Mermaid ER diagram
+
+---
+
 ## Architecture Components
 
 ### Application Layer
