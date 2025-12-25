@@ -36,6 +36,8 @@ services:
       - .:/app
     ports:
       - "8001:8001"
+    env_file:
+      - .env
     environment:
       - DEBUG=True
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/survey_platform
@@ -51,6 +53,8 @@ services:
     command: celery -A config.celery worker -l info
     volumes:
       - .:/app
+    env_file:
+      - .env
     environment:
       - DEBUG=True
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/survey_platform
@@ -64,6 +68,8 @@ services:
     command: celery -A config.celery beat -l info
     volumes:
       - .:/app
+    env_file:
+      - .env
     environment:
       - DEBUG=True
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/survey_platform
