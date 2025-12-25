@@ -1208,8 +1208,6 @@ This project is licensed under the MIT License.
 **Ahmed Amine Touahria**
 
 - Website: [https://a-aminetouahria.com](https://a-aminetouahria.com)
-- API: [https://edsp-api.a-aminetouahria.com](https://edsp-api.a-aminetouahria.com)
-
 ---
 
 
