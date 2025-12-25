@@ -1,40 +1,52 @@
-# Requirements for Enterprise Dynamic Survey Platform
-
-# Django Core
-django>=5.0,<6.0
-djangorestframework>=3.14,<4.0
-
-# Database
-psycopg2-binary>=2.9,<3.0
-django-environ>=0.11,<1.0
-
-# Async Processing
-celery>=5.3,<6.0
-redis>=5.0,<6.0
-
-# Security & Encryption
-cryptography>=41.0,<42.0
-djangorestframework-simplejwt>=5.3,<6.0
-
-# API Documentation
-drf-spectacular>=0.26,<1.0
-
-# CORS
-django-cors-headers>=4.0,<5.0
-
-# Utilities
-python-dateutil>=2.8,<3.0
-pytz>=2023.3
-
-# Development
-django-debug-toolbar>=4.2,<5.0
-django-extensions>=3.2,<4.0
-
-# Testing
-pytest>=7.4,<8.0
-pytest-django>=4.5,<5.0
-factory-boy>=3.3,<4.0
-faker>=19.0,<20.0
-
-# Monitoring
-sentry-sdk>=1.32,<2.0
+amqp==5.3.1
+asgiref==3.11.0
+attrs==25.4.0
+billiard==4.2.4
+celery==5.6.0
+certifi==2025.11.12
+cffi==2.0.0
+click==8.3.1
+click-didyoumean==0.3.1
+click-plugins==1.1.1.2
+click-repl==0.3.0
+cryptography==41.0.7
+Django==5.2.9
+django-cors-headers==4.9.0
+django-debug-toolbar==4.4.6
+django-environ==0.12.0
+django-extensions==3.2.3
+djangorestframework==3.16.1
+djangorestframework_simplejwt==5.5.1
+drf-spectacular==0.29.0
+exceptiongroup==1.3.1
+factory_boy==3.3.3
+Faker==19.13.0
+inflection==0.5.1
+iniconfig==2.3.0
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+kombu==5.6.1
+packaging==25.0
+pluggy==1.6.0
+prompt_toolkit==3.0.52
+psycopg2-binary==2.9.11
+pycparser==2.23
+PyJWT==2.10.1
+pytest==7.4.4
+pytest-django==4.11.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+PyYAML==6.0.3
+redis==5.3.1
+referencing==0.37.0
+rpds-py==0.30.0
+sentry-sdk==1.45.1
+six==1.17.0
+sqlparse==0.5.5
+typing_extensions==4.15.0
+tzdata==2025.3
+tzlocal==5.3.1
+uritemplate==4.2.0
+urllib3==2.6.2
+vine==5.1.0
+wcwidth==0.2.14
