@@ -1,27 +1,6 @@
 version: '3.8'
 
 services:
-  traefik:
-    image: traefik:v2.10
-    command:
-      - "--api.insecure=true"
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
-      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
-      - "--certificatesresolvers.myresolver.acme.email=admin@a-aminetouahria.com"
-      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock:ro"
-      - "./letsencrypt:/letsencrypt"
-    networks:
-      - traefik-public
-
   db:
     image: postgres:15-alpine
     environment:
@@ -55,8 +34,8 @@ services:
     command: python manage.py runserver 0.0.0.0:8001
     volumes:
       - .:/app
-    expose:
-      - "8001"
+    ports:
+      - "8001:8001"
     environment:
       - DEBUG=True
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/survey_platform
@@ -66,19 +45,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    networks:
-      - traefik-public
-      - default
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.edsp.rule=Host(`edsp-api.a-aminetouahria.com`)"
-      - "traefik.http.routers.edsp.entrypoints=websecure"
-      - "traefik.http.routers.edsp.tls.certresolver=myresolver"
-      - "traefik.http.services.edsp.loadbalancer.server.port=8001"
-      - "traefik.http.routers.edsp-http.rule=Host(`edsp-api.a-aminetouahria.com`)"
-      - "traefik.http.routers.edsp-http.entrypoints=web"
-      - "traefik.http.routers.edsp-http.middlewares=redirect-to-https"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
 
   celery_worker:
     build: .
@@ -109,7 +75,3 @@ services:
 volumes:
   postgres_data:
   redis_data:
-
-networks:
-  traefik-public:
-    external: false
