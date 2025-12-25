@@ -48,7 +48,7 @@ services:
 
   celery_worker:
     build: .
-    command: celery -A config worker -l info
+    command: celery -A config.celery worker -l info
     volumes:
       - .:/app
     environment:
@@ -61,7 +61,7 @@ services:
 
   celery_beat:
     build: .
-    command: celery -A config beat -l info
+    command: celery -A config.celery beat -l info
     volumes:
       - .:/app
     environment:
